@@ -3,7 +3,6 @@ const TelegramBot = require('node-telegram-bot-api');
 const fs = require('fs');
 const path = require('path');
 const token = process.env.TOKEN;
-let counter = 1;
 
 // Functions
 const randomNumber = max => Math.random() * max;
@@ -25,8 +24,6 @@ if (token) {
 			phrase = getPhrase(source);
 			if (!phrase.includes('Псалом')) break;
 		}
-		console.log(`Message received. Total counter - ${counter}`);
-		counter++;
 		bot.sendMessage(id, phrase);
 	});
 } else {

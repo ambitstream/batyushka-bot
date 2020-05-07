@@ -2,14 +2,18 @@
   "name": "b-bot",
   "version": "1.0.0",
   "description": "Batyushka Bot",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "pm2 start app.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "dotenv": "^8.2.0",
     "node-telegram-bot-api": "^0.40.0"
+  },
+  "devDependencies": {
+		"dotenv": "^8.2.0",
+    "pm2": "^4.4.0"
   }
 }
