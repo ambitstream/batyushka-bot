@@ -1,10 +1,11 @@
+require('dotenv').config();
 const TelegramBot = require('node-telegram-bot-api');
 const fs = require('fs');
 const path = require('path');
 const token = process.env.TOKEN;
 let counter = 1;
 
-// Fubctions
+// Functions
 const randomNumber = max => Math.random() * max;
 const getPhrase = src => src[Math.floor(randomNumber(source.length - 1))] || '';
 
@@ -24,7 +25,7 @@ if (token) {
 			phrase = getPhrase(source);
 			if (!phrase.includes('Псалом')) break;
 		}
-		console.log(`Message recieved. Total counter - ${counter}`);
+		console.log(`Message received. Total counter - ${counter}`);
 		counter++;
 		bot.sendMessage(id, phrase);
 	});
