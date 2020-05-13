@@ -3,6 +3,11 @@ const TelegramBot = require('node-telegram-bot-api');
 const fs = require('fs');
 const path = require('path');
 const token = process.env.TOKEN;
+const port = process.env.PORT;
+const url = process.env.APP_URL
+const options = {
+  webHook: { port }
+};
 
 // Functions
 const randomNumber = max => Math.random() * max;
@@ -15,7 +20,9 @@ fs.readFile(path.join(__dirname, 'bible.txt'), {encoding: 'utf8'}, (err, data) =
 });
 
 if (token) {
-	const bot = new TelegramBot(token, {polling: true});
+	const bot = new TelegramBot(token, options);
+
+	bot.setWebHook(`${url}/bot${token}`);
 
 	bot.on('message', msg => {
 		const { id } = msg.chat;
